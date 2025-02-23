@@ -4,10 +4,10 @@ import Dropdown from './Dropdown';
 
 export default function CalcArea() {
     const [formValues, setFormValues] = useState({
-        hrsIN: 0,
-        minIN: 0,
-        hrOUT: 0,
-        minOUT: 0,
+        hrsIN: '',
+        minIN: '',
+        hrOUT: '',
+        minOUT: '',
     });
     const [tapinDay, chngtapinDay] = useState('AM');
     const [tapoutDay, chngtapoutDay] = useState('AM');
