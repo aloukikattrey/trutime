@@ -114,12 +114,10 @@ export default function CalcArea() {
     }
 
     return (
-        <div className='flex justify-center items-center'>
+        <div className='boss flex justify-center items-center'>
             <div className='flex justify-center items-center pt-10 w-1/2'>
                 <div className=''>
-                    <div className='boss h-full flex gap-1'>
-
-
+                    <div className='h-full flex gap-1'>
                         <div className="tap-in flex bg-gray-100 p-2 rounded items-center justify-center">
                             <input className='w-1/6 h-8 pl-2' type="number"
                                 name="hrsIN"

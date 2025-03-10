@@ -1,0 +1,27 @@
+
+@media (max-width: 675px) {
+    .boss{
+        scale: 0.8;
+    }
+
+}
+
+@media(max-width: 535px) {
+    .boss{
+        scale: 0.6;
+    }
+
+}
+
+@media(max-width: 410px) {
+    .boss{
+        scale: 0.5;
+    }
+
+}
+@media(max-width: 340px) {
+    .boss{
+        scale: 0.4;
+    }
+
+}
