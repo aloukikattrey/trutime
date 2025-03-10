@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Dropdown'
 import Dropdown from './Dropdown';
+import './DropdownTime'
+import DropdownTime from './DropdownTime';
 
 export default function CalcArea() {
     const [formValues, setFormValues] = useState({
@@ -18,6 +20,7 @@ export default function CalcArea() {
     const [topupHrs, chngTopupHrs] = useState(0);
     const [topupMins, chngTopupMins] = useState(0);
     const [show, chngShow] = useState(false);
+    const [timeToComplete, setTimeToComplete] = useState(10);
 
 
     function handleChange(event) {
@@ -32,6 +35,9 @@ export default function CalcArea() {
     }
     function getTapoutDay(value) {
         chngtapoutDay(value);
+    }
+    function getTimeToComplete(value) {
+        setTimeToComplete(value);
     }
 
     function handleClick() {
@@ -63,7 +69,10 @@ export default function CalcArea() {
 
         }
 
-        const remMinutes = 600 - z;
+        const remMinutes = (timeToComplete * 60) - z;
+        // const remMinutes = timeToComplete*60
+
+        console.log(remMinutes);
         chngTopupHrs(Math.trunc(remMinutes / 60));
         chngTopupMins(remMinutes % 60);
         let currHrs;
@@ -71,7 +80,6 @@ export default function CalcArea() {
 
         let finalHrs;
         let finalMins;
-
 
         // increase 1 minute for calculating 10 hours
         if ((Number(formValues.minOUT)) == 59) {
@@ -110,6 +118,8 @@ export default function CalcArea() {
             <div className='flex justify-center items-center pt-10 w-1/2'>
                 <div className=''>
                     <div className='boss h-full flex gap-1'>
+
+
                         <div className="tap-in flex bg-gray-100 p-2 rounded items-center justify-center">
                             <input className='w-1/6 h-8 pl-2' type="number"
                                 name="hrsIN"
@@ -139,29 +149,35 @@ export default function CalcArea() {
                                 onChange={handleChange}
                                 placeholder="0" />
                             <Dropdown valFunc={getTapoutDay} />
-
                         </div>
+
+
                         <button className='bg-blue-600 p-2 text-white rounded cursor-pointer'
                             onClick={handleClick}>Calculate</button>
                     </div>
-                    {show && (
-                    <div className='mt-10  pl-4 '>
-                        <div className='flex mb-2 border-b border-grey-400 pb-1'>
-                            <p>TruTime: {hrsPassed} hrs {minPassed} mins</p>
-                        </div>
-                        <div className='flex mb-2  border-b border-grey-400 pb-1'>
-                            <p>Top Up: {topupHrs} hrs {topupMins} mins</p>
-
-                        </div>
-
-                        <div className='flex'>
-                            <p className='flex mr-2'> Final Time:  {formValues.hrOUT} : {Number(formValues.minOUT) + 1} PM  To  {finalHRs00} : {finalMins00} PM</p>
-                        </div>
-                       
-
-
+                    <div className='flex mt-2 items-center' >
+                        <p className='mr-2'>Time To Complete :</p>
+                        <DropdownTime valFunc={getTimeToComplete} />
                     </div>
-                     )}
+
+
+                    {show && (
+                        <div className='mt-10  pl-4 '>
+                            <div className='flex mb-2 border-b border-grey-400 pb-1'>
+                            <p className='w-1/6'>TruTime:</p>    <p> {hrsPassed} hrs {minPassed} mins</p>
+                            </div>
+                            <div className='flex mb-2  border-b border-grey-400 pb-1'>
+                                <p className='w-1/6'>TopUp Hours:</p>
+                                {hrsPassed == timeToComplete || hrsPassed > timeToComplete ? <p className='text-green-700'>   Time Already Completed</p> : <p> {topupHrs} hrs {topupMins} mins</p>}
+
+                            </div>
+
+                            <div className='flex'>
+                                <p className='w-1/6'>Apply Time: </p>
+                                {hrsPassed == timeToComplete || hrsPassed > timeToComplete ? <p className='text-green-700'>  Time Already Completed</p> : <p className='flex mr-2'>  {formValues.hrOUT} : {Number(formValues.minOUT) + 1} PM  to  {finalHRs00} : {finalMins00} PM</p>}
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
