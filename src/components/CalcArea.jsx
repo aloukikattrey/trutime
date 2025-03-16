@@ -209,59 +209,66 @@ export default function CalcArea() {
 
     return (
         <div className='boss flex justify-center items-center'>
-            <div className='flex justify-center items-center pt-10 w-1/2'>
-                <div className='w-full'>
-                    <div className='h-full flex gap-1'>
-                        <div className="tap-in  bg-gray-100 p-2 rounded items-center justify-center">
-                            <div className='flex items-center justify-center mb-1'>
-                                <p className='text-xs text-gray-800'>Check-in Time</p>
-                            </div>
-                            <div className='flex items-center justify-center'>
-                                <input className='w-1/6 h-8 pl-2 rounded' type="number"
-                                    name="hrsIN"
-                                    value={formValues.hrsIN}
-                                    onChange={handleChange}
-                                    placeholder="0" />
-                                <p className='ml-1 mr-1'>:</p>
-                                <input className='w-1/6 h-8 pl-2 mr-2 rounded' type="number"
-                                    name="minIN"
-                                    value={formValues.minIN}
-                                    onChange={handleChange}
-                                    placeholder="0" />
-                                <Dropdown valFunc={getTapinDay} />
-                            </div>
-                        </div>
+            <div className='bossbaby flex justify-center items-center pt-10 w-1/2'>
 
-                        {active == 'calc1' &&
-                            <div className="tap-out  bg-gray-100 w-max p-2 rounded items-center justify-center ">
+                <div className='w-full'>
+
+                    <div className='forBlock h-full flex gap-1'>
+                        
+                            <div className="tap-in  bg-gray-100 p-2 rounded items-center justify-center">
                                 <div className='flex items-center justify-center mb-1'>
-                                    <p className='text-xs text-gray-800'>Check-out Time</p>
+                                    <p className='text-xs text-gray-800'>Check-in Time</p>
                                 </div>
                                 <div className='flex items-center justify-center'>
-                                    <input className='w-1/6 h-8 pl-2 rounded ' type="number"
-                                        name="hrOUT"
-                                        value={formValues.hrOUT}
+                                    <input className='w-1/6 h-8 pl-2 rounded' type="number"
+                                        name="hrsIN"
+                                        value={formValues.hrsIN}
                                         onChange={handleChange}
                                         placeholder="0" />
                                     <p className='ml-1 mr-1'>:</p>
                                     <input className='w-1/6 h-8 pl-2 mr-2 rounded' type="number"
-                                        name="minOUT"
-                                        value={formValues.minOUT}
+                                        name="minIN"
+                                        value={formValues.minIN}
                                         onChange={handleChange}
                                         placeholder="0" />
-                                    <Dropdown valFunc={getTapoutDay} />
+                                    <Dropdown valFunc={getTapinDay} />
                                 </div>
                             </div>
-                        }
+                            
+                            {active == 'calc1' &&
+                                <div className="tap-out  bg-gray-100 w-max p-2 rounded items-center justify-center ">
+                                    <div className='flex items-center justify-center mb-1'>
+                                        <p className='text-xs text-gray-800'>Check-out Time</p>
+                                    </div>
+                                    <div className='flex items-center justify-center'>
+                                        <input className='w-1/6 h-8 pl-2 rounded ' type="number"
+                                            name="hrOUT"
+                                            value={formValues.hrOUT}
+                                            onChange={handleChange}
+                                            placeholder="0" />
+                                        <p className='ml-1 mr-1'>:</p>
+                                        <input className='w-1/6 h-8 pl-2 mr-2 rounded' type="number"
+                                            name="minOUT"
+                                            value={formValues.minOUT}
+                                            onChange={handleChange}
+                                            placeholder="0" />
+                                        <Dropdown valFunc={getTapoutDay} />
+                                    </div>
+                                </div>
+                            }
+
+                            <button className='btn bg-indigo-800 pl-4 pr-4 text-white rounded cursor-pointer'
+                                onClick={active == 'calc1' ? handleClick : handleClick2}>Calculate</button>
 
 
-                        <button className='btn bg-indigo-800 pl-4 pr-4 text-white rounded cursor-pointer'
-                            onClick={active == 'calc1' ? handleClick : handleClick2}>Calculate</button>
                     </div>
-                    <div className='flex mt-1 items-center bg-gray-100 p-2 rounded w-max text-sm' >
-                        <p className='mr-2'>Time To Complete</p>
-                        <DropdownTime valFunc={getTimeToComplete} />
-                        <div className='flex ml-10'>
+
+                    <div className='toolbar flex mt-1 items-center bg-gray-100 p-2 rounded w-max text-sm' >
+                        <div className='flex items-center justify-center'>
+                            <p className='mr-2'>Time To Complete</p>
+                            <DropdownTime valFunc={getTimeToComplete} />
+                        </div>
+                        <div className='tool2 flex ml-10'>
                             <div className={`calc1 cursor-pointer border border-blue-600 rounded-3xl pr-2 pl-2  p-1 mr-2 ${active == 'calc1' ? "active" : ""}`} onClick={handleCalc1}>
                                 <p className='text-xs'>Calculate TruTime</p>
                             </div>
