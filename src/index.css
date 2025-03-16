@@ -15,3 +15,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.active{
+  background-color: rgb(149, 197, 255)
+}
+.calc1{
+  transition: 0.2s ease;
+}
+.btn{
+  transition: 0.2s ease;
+
+}
+.btn:hover{
+  background-color: rgb(111, 128, 255);
+  color: rgb(255, 255, 255);
+}
