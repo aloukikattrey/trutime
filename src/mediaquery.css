@@ -1,39 +1,4 @@
-
-@media (max-width: 1193px) {
-    .bossbaby{
-        width: 801px;
-    }
-
-}
-
-@media (max-width: 830px) {
-    .bossbaby{
-        width: 713px;
-    }
-
-}
-@media (max-width: 768px) {
-    .bossbaby {
-        width: 90%;
-        flex-direction: column;
-    }
-
-    .forBlock {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .tap-in, .tap-out {
-        width: 100%;
-    }
-
-    .btn {
-        width: 100%;
-        margin-top: 1rem;
-    }
-}
-
-/* @media (max-width: 704px) {
+ /* @media (max-width: 704px) {
     .bossbaby{
         width: 650px;
     }
@@ -86,4 +51,41 @@
     .bossbaby{
         width: 436px;
     }
-} */
+}  */
+@media(max-width: 556px) {
+    .bossbaby{
+        padding: 5px;
+        width: max-content;
+    }
+    .forBlock{
+        display: block;
+    }
+    .btn{
+        margin-top: 5px;
+        padding: 10px;
+        /* width: max-content;1 */
+
+    }
+    .buttonboss{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .toolboss{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .toolbar{
+        width: max-content;
+        display: block;
+        align-items: center;
+        justify-content: center;
+    }
+    .tool2{
+        padding: 0;
+        padding-top: 13px;
+        margin: 0;
+    }
+    
+} 

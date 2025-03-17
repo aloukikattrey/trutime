@@ -199,7 +199,7 @@ export default function CalcArea() {
     var content = (
         <div>
             <div className='mt-10  pl-4 '>
-                <div className='flex mb-2 border-b border-grey-400 pb-1'>
+                <div className='flex mb-2 border-b border-gray-400 pb-1'>
                     <p className='w-1/6'>Check-out:</p> <p> {calc2Vals.newHr}:{calc2Vals.newMn} {calc2Vals.newDay}</p>
                 </div>
             </div>
@@ -208,14 +208,14 @@ export default function CalcArea() {
     )
 
     return (
-        <div className='boss flex justify-center items-center'>
-            <div className='bossbaby flex justify-center items-center pt-10 w-1/2'>
+        <div className='boss flex justify-center items-center w-full'>
+            <div className='bossbaby flex justify-center items-center p-10 w-1/2'>
+                <div className=''>
+                    <div className='forBlock h-full flex  gap-1'>
 
-                <div className='w-full'>
+                        <div className='forFlex flex gap-1'>
 
-                    <div className='forBlock h-full flex gap-1'>
-                        
-                            <div className="tap-in  bg-gray-100 p-2 rounded items-center justify-center">
+                            <div className="tap-in border border-black bg-gray-100 p-2 rounded items-center justify-center">
                                 <div className='flex items-center justify-center mb-1'>
                                     <p className='text-xs text-gray-800'>Check-in Time</p>
                                 </div>
@@ -234,9 +234,9 @@ export default function CalcArea() {
                                     <Dropdown valFunc={getTapinDay} />
                                 </div>
                             </div>
-                            
+
                             {active == 'calc1' &&
-                                <div className="tap-out  bg-gray-100 w-max p-2 rounded items-center justify-center ">
+                                <div className="tap-out border border-black  bg-gray-100  p-2 rounded items-center justify-center ">
                                     <div className='flex items-center justify-center mb-1'>
                                         <p className='text-xs text-gray-800'>Check-out Time</p>
                                     </div>
@@ -256,14 +256,14 @@ export default function CalcArea() {
                                     </div>
                                 </div>
                             }
-
-                            <button className='btn bg-indigo-800 pl-4 pr-4 text-white rounded cursor-pointer'
-                                onClick={active == 'calc1' ? handleClick : handleClick2}>Calculate</button>
-
-
+                        </div>
+                        <div className='buttonboss flex'>
+                        <button className='btn bg-indigo-800 pl-4 pr-4 text-white rounded cursor-pointer'
+                            onClick={active == 'calc1' ? handleClick : handleClick2}>Calculate</button>
+                        </div>
                     </div>
-
-                    <div className='toolbar flex mt-1 items-center bg-gray-100 p-2 rounded w-max text-sm' >
+                    <div className='toolboss'>
+                    <div className='toolbar border border-black flex mt-1 items-center bg-gray-100 p-2 rounded w-max text-sm' >
                         <div className='flex items-center justify-center'>
                             <p className='mr-2'>Time To Complete</p>
                             <DropdownTime valFunc={getTimeToComplete} />
@@ -277,15 +277,16 @@ export default function CalcArea() {
                             </div>
                         </div>
                     </div>
+                    </div>
 
 
                     {show &&
                         (isError ? <div className='mt-5'><p className='text-red-600'>Error: Check-in and Check-out Time are Overlapping</p></div> : active == 'calc2' ? content : active == 'calc1' ?
                             <div className='mt-10  pl-4 '>
-                                <div className='flex mb-2 border-b border-grey-400 pb-1'>
+                                <div className='flex mb-2 border-b border-gray-400 pb-1'>
                                     <p className='w-1/6'>TruTime:</p> <p> {hrsPassed} hrs {minPassed} mins</p>
                                 </div>
-                                <div className='flex mb-2  border-b border-grey-400 pb-1'>
+                                <div className='flex mb-2  border-b border-gray-400 pb-1'>
                                     <p className='w-1/6'>TopUp Hours:</p>
                                     {hrsPassed == timeToComplete || hrsPassed > timeToComplete ? <p className='text-green-700'>   Time Already Completed</p> : <p> {topupHrs} hrs {topupMins} mins</p>}
 
