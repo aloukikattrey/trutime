@@ -52,7 +52,13 @@
         width: 436px;
     }
 }  */
+@media(max-width: 707px) {
+    .tap-out{
+        width:auto;
+    }
+} 
 @media(max-width: 556px) {
+   
     .bossbaby{
         padding: 5px;
         width: max-content;

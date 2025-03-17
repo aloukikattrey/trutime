@@ -236,7 +236,7 @@ export default function CalcArea() {
                             </div>
 
                             {active == 'calc1' &&
-                                <div className="tap-out border border-black  bg-gray-100  p-2 rounded items-center justify-center ">
+                                <div className="tap-out border border-black  bg-gray-100 w-max  p-2 rounded items-center justify-center ">
                                     <div className='flex items-center justify-center mb-1'>
                                         <p className='text-xs text-gray-800'>Check-out Time</p>
                                     </div>
