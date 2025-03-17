@@ -198,7 +198,7 @@ export default function CalcArea() {
 
     var content = (
         <div>
-            <div className='mt-10  pl-4 '>
+            <div className='datacalc1 mt-10  pl-4 '>
                 <div className='flex mb-2 border-b border-gray-400 pb-1'>
                     <p className='w-1/6'>Check-out:</p> <p> {calc2Vals.newHr}:{calc2Vals.newMn} {calc2Vals.newDay}</p>
                 </div>
@@ -215,7 +215,7 @@ export default function CalcArea() {
 
                         <div className='forFlex flex gap-1'>
 
-                            <div className="tap-in border border-black bg-gray-100 p-2 rounded items-center justify-center">
+                            <div className="tap-in border border-gray-400 bg-gray-100 p-2 rounded items-center justify-center">
                                 <div className='flex items-center justify-center mb-1'>
                                     <p className='text-xs text-gray-800'>Check-in Time</p>
                                 </div>
@@ -236,7 +236,7 @@ export default function CalcArea() {
                             </div>
 
                             {active == 'calc1' &&
-                                <div className="tap-out border border-black  bg-gray-100 w-max  p-2 rounded items-center justify-center ">
+                                <div className="tap-out border border-gray-400  bg-gray-100 w-max  p-2 rounded items-center justify-center ">
                                     <div className='flex items-center justify-center mb-1'>
                                         <p className='text-xs text-gray-800'>Check-out Time</p>
                                     </div>
@@ -263,26 +263,24 @@ export default function CalcArea() {
                         </div>
                     </div>
                     <div className='toolboss'>
-                    <div className='toolbar border border-black flex mt-1 items-center bg-gray-100 p-2 rounded w-max text-sm' >
+                    <div className='toolbar border border-gray-400 flex mt-1 items-center bg-gray-100 p-2 rounded w-max text-sm' >
                         <div className='flex items-center justify-center'>
                             <p className='mr-2'>Time To Complete</p>
                             <DropdownTime valFunc={getTimeToComplete} />
                         </div>
                         <div className='tool2 flex ml-10'>
-                            <div className={`calc1 cursor-pointer border border-blue-600 rounded-3xl pr-2 pl-2  p-1 mr-2 ${active == 'calc1' ? "active" : ""}`} onClick={handleCalc1}>
+                            <div className={`calc1 cursor-pointer border border-indigo-900 rounded-3xl pr-2 pl-2  p-1 mr-2 ${active == 'calc1' ? "active" : ""}`} onClick={handleCalc1}>
                                 <p className='text-xs'>Calculate TruTime</p>
                             </div>
-                            <div className={`calc2 cursor-pointer  border border-blue-600 rounded-3xl pl-2 pr-2 p-1  ${active == 'calc2' ? "active" : ""}`} onClick={handleCalc2}>
+                            <div className={`calc2 cursor-pointer  border border-indigo-900 rounded-3xl pl-2 pr-2 p-1  ${active == 'calc2' ? "active" : ""}`} onClick={handleCalc2}>
                                 <p className='text-xs'>Calculate Check out Time</p>
                             </div>
                         </div>
                     </div>
                     </div>
-
-
                     {show &&
-                        (isError ? <div className='mt-5'><p className='text-red-600'>Error: Check-in and Check-out Time are Overlapping</p></div> : active == 'calc2' ? content : active == 'calc1' ?
-                            <div className='mt-10  pl-4 '>
+                        (isError ? <div className='datacalc1 mt-5'><p className='text-red-600'>Error: Check-in and Check-out Time are Overlapping</p></div> : active == 'calc2' ? content : active == 'calc1' ?
+                            <div className='datacalc1 mt-10  pl-4 '>
                                 <div className='flex mb-2 border-b border-gray-400 pb-1'>
                                     <p className='w-1/6'>TruTime:</p> <p> {hrsPassed} hrs {minPassed} mins</p>
                                 </div>

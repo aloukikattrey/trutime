@@ -18,7 +18,9 @@ code {
     monospace;
 }
 .active{
-  background-color: rgb(149, 197, 255)
+  /* background-color: rgb(149, 165, 255) */
+  background-color: oklch(0.359 0.144 278.697);
+  color: white;
 }
 .calc1{
   transition: 0.2s ease;
